@@ -1,0 +1,13 @@
+你好， {{ user.username }}
+
+欢迎来 周文宇的个人博客！
+
+请点击下面的链接，确认你的电子邮箱：
+
+{{ url_for('auth.confirm', token=token, _external=True) }}
+
+敬上，
+
+周文宇，Stan Zhou
+
+注：此邮件无法回复。

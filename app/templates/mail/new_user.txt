@@ -1,0 +1,1 @@
+User {{ user.usernmae }} has joined.
