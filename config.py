@@ -63,7 +63,7 @@ class ProductionConfig(Config):
             subject=cls.FLASKY_MAIL_SUBJECT_PREFIX + ' Application Error',
             credentials=credentials,
             secure=secure)
-        mai_handler.setLevel(logging.ERROR)
+        mail_handler.setLevel(logging.ERROR)
         app.logger.addHandler(mail_handler)
 
 class UnixConfig(ProductionConfig):
