@@ -66,6 +66,18 @@ class ProductionConfig(Config):
         mai_handler.setLevel(logging.ERROR)
         app.logger.addHandler(mail_handler)
 
+class UnixConfig(ProductionConfig):
+    @classmethod
+    def init_app(cls, app):
+        ProductionConfig.init_app(app)
+
+        # log to syslog
+        import logging
+        from logging.handlers import SysLogHandler
+        syslog_handler = SysLogHandler()
+        syslog_handler.setLevel(logging.INFO)
+        app.loger.addHandler(syslog_handler)
+
 config = {
     'development': DevelopmentConfig,
     'testing': TestingConfig,
